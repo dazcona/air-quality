@@ -53,8 +53,6 @@ def normalize_images(path):
             # h1 = arr.shape[0]
             # w1 = arr.shape[1]
 
-            import pdb; pdb.set_trace();
-
             # # loop over the image, pixel by pixel
             # for y in range(0, h1):
             #     for x in range(0, w1):
