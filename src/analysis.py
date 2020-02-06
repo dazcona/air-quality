@@ -53,6 +53,8 @@ def normalize_images(path):
             # h1 = arr.shape[0]
             # w1 = arr.shape[1]
 
+            import pdb; pdb.set_trace();
+
             # # loop over the image, pixel by pixel
             # for y in range(0, h1):
             #     for x in range(0, w1):
@@ -60,9 +62,9 @@ def normalize_images(path):
             #         arr[y, x, 1] = arr[y, x, 1] + (52 - G1) # add or substract the difference of green
             #         arr[y, x, 2] = arr[y, x, 2] + (52 - B1) # add or substract the difference of Blue
             # Do them all at once for each channel!
-            arr[:, :, 0] =+ (52 - R1)
-            arr[:, :, 1] =+ (52 - G1)
-            arr[:, :, 2] =+ (52 - B1)
+            np.add(arr[:, :, 0], float(52 - R1), out=arr[:, :, 0], casting="unsafe")
+            np.add(arr[:, :, 1], float(52 - G1), out=arr[:, :, 1], casting="unsafe")
+            np.add(arr[:, :, 2], float(52 - B1), out=arr[:, :, 2], casting="unsafe")
             
             # Saving the Normalised Images
             print('Saving the image...')
@@ -111,9 +113,9 @@ def extract_values(path):
             # Extracting the 5*5 square pixel mean colour values of each dot
             for dotx in corX:
                 for doty in corY:
-                    valueR = imgRGB_original[dotx:dotx + 5,doty:doty + 5, 0].mean()
-                    valueG = imgRGB_original[dotx:dotx + 5,doty:doty + 5, 1].mean()
-                    valueB = imgRGB_original[dotx:dotx + 5,doty:doty + 5, 2].mean()
+                    valueR = imgRGB_original[dotx:dotx + 5, doty:doty + 5, 0].mean()
+                    valueG = imgRGB_original[dotx:dotx + 5, doty:doty + 5, 1].mean()
+                    valueB = imgRGB_original[dotx:dotx + 5, doty:doty + 5, 2].mean()
                     x = [name, dotNames[count], valueR, valueG, valueB]
                     values.append(x)
                     count= count + 1
