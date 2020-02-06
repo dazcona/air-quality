@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+
+    <div class="jumbotron">
+
+        <img class="card-img-top img-responsive" style="align-items:center;"
+        src="{{ url_for('static', filename='img/banner.jpg') }}">
+
+        <h3 class="lead"><strong>Air Quality</strong></h4>
+
+        <hr class="my-4">
+
+        <h4 class="lead">
+            We use Computer Vision techniques
+        </h4>
+
+        <h4 class="lead">
+            <a class="btn btn-primary btn-lg" href="/upload" role="button"
+            style="background-color:#38398c;border-color:#38398c">Upload new pictures</a>
+            <a class="btn btn-primary btn-lg" href="/gallery" role="button" 
+            style="background-color:#38398c;border-color:#38398c">Browse the gallery</a>
+        </h4>
+
+    </div>
+
+{% endblock %}

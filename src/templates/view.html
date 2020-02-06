@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+    <h1 class="page-header"> {{ desc | upper }} </h1>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th style="text-align:center">Image Name</th>
+                <th style="text-align:center">Dot Number</th>
+                <th style="text-align:center">R Value</th>
+                <th style="text-align:center">G Value</th>
+                <th style="text-align:center">B Value</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for value in values %}
+
+                <tr align="center">
+                    <td> {{ value[0] }} </td>
+                    <td> {{ value[1] }} </td>
+                    <td> {{ value[2] }} </td>
+                    <td> {{ value[3] }} </td>
+                    <td> {{ value[4] }} </td>
+                </tr>
+    
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
